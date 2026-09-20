@@ -3,7 +3,9 @@ import Setting from "./Setting";
 import { Select } from "../selects";
 import { useRef } from "react";
 import { getFinalHeight } from "./settings";
-import { setLanguage } from "@/scripts/requests";
+import { getInbox, setLanguage } from "@/scripts/requests";
+import { useInbox } from "@/context/User";
+import { sortInbox } from "../inbox/mail";
 
 export default function LanguageSetting({ className = "", children, ...props }) {
     const setting = {
@@ -14,9 +16,14 @@ export default function LanguageSetting({ className = "", children, ...props }) 
     }
     const [lang, setLang] = useLang();
     const updateUserLang = useUpdateUserLang()
+    const [inbox, setInbox] = useInbox();
 
     async function updateLang(e) {
         const data = await setLanguage(e.target.value);
+        // update inbox to reflect the new language
+        const newInbox = await getInbox(e.target.value);
+        setInbox(sortInbox(newInbox));
+
         window.localStorage.setItem("lang", data.language)
         updateUserLang(data.language);
         setLang(data.language);

@@ -17,7 +17,7 @@ export default function LoginChecker() {
         const storedInfo = await getUserInfo();
         const storedTags = await getTags();
         const storedTasks = await getTasks();
-        const inbox = await getInbox();
+        const inbox = await getInbox(storedInfo?.settings?.language || getInitLang());
 
         setInboxState(sortInbox(inbox));
         setInfoState(storedInfo);

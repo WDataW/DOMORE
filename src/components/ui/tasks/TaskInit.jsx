@@ -14,7 +14,6 @@ export default function TaskInit({ noNewTags, setNewTask, taskToEdit, close, cla
     const [priority, setPriority] = useState(taskToEdit.priority);
     const [selectedTags, setSelectedTags] = useState(getTaskTags(taskToEdit));
     const createdAt = new Date().toISOString();
-    console.log(selectedTags);
     const newTaskId = `task:${randomUUID()}`;
     useEffect(() => {
         setNewTask({

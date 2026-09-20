@@ -89,8 +89,8 @@ export const isLogged = async () => {
     } catch (error) { return false; }
 }
 
-export const getInbox = async () => {
-    const response = await api.get(`/account/inbox`);
+export const getInbox = async (language) => {
+    const response = await api.get(`/account/inbox?language=${language}`);
     return response.data;
 }
 

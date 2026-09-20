@@ -27,12 +27,7 @@ export default function LanguageButton({ isInBurger, className = "", yOffset = -
         window.localStorage.setItem("lang", newLang);
         setLang(newLang);
         hideContainer();
-        const isLoggedIn = await isLogged();
-        if (isLoggedIn) {
-            // update inbox to reflect the new language
-            const newInbox = await getInbox();
-            setInbox(sortInbox(newInbox));
-        }
+
     }
 
     function hideContainer() {
