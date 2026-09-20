@@ -15,7 +15,6 @@ export default function LanguageButton({ isInBurger, className = "", yOffset = -
     const [lang, setLang] = useLang();
     const [localLang, setLocalLang] = useState(lang);
     const [info, setInfo] = useInfo();
-    const [inbox, setInbox] = useInbox();
     async function updateLanguage(newLang) {
         updateLang(newLang)
         setLocalLang(newLang);
