@@ -36,8 +36,7 @@ export default function SignUpPage() {
         e.preventDefault();
         try {
             setLoading(true)
-            const response = await signUp({ email, password, fullname });
-            if (response.status !== 201) throw new Error('Error couldn\'t register');
+            await signUp({ email, password, fullname });
             navigate(`/auth/verify-email?email=${email}`);
         } catch (error) {
             //  

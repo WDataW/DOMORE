@@ -13,10 +13,9 @@ export default function EditTag({ yesFunc, setActiveTags, activeTags, close, tag
         let response
         if (!tagToEdit?.id) response = await createTag(newTag); // indicates we're creating a tag not editing one
         else response = await patchTag(newTag);
-        if (response && response.status == 200 || response.status == 201) editTag(response.data);
-        else throw new Error('Error couldn\'t save tag');
+        editTag(response.data);
         if (activeTags && activeTags.length == 0) setActiveTags(newTag.builtIn ? [t(`terms.${isBuiltInTitle(newTag.title, t)}`)] : [newTag.id]);
-        if (yesFunc) yesFunc(newTag);
+        if (yesFunc) yesFunc(response.data);
         close();
     }
 

@@ -79,13 +79,13 @@ export const setLanguage = async (language) => {
 }
 export const setThemeSetting = async ({ base, lightAccentColor, lightSecondaryColor, darkAccentColor, darkSecondaryColor }) => {
     const response = await api.patch(`/account/settings`, { theme: { base, lightAccentColor, lightSecondaryColor, darkAccentColor, darkSecondaryColor } });
-    if (response && response.status == 200) return response.data;
+    return response.data;
 }
 
 export const isLogged = async () => {
     try {
         const response = await api.get(`/auth/showMe`, { isSilent: true });
-        if (response && response.status == 200) return true;
+        return true;
     } catch (error) { return false; }
 }
 

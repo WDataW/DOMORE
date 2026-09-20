@@ -31,11 +31,9 @@ export default function SignOutAction({ className = "", children, ...props }) {
         setTags([]);
         setInbox([]);
         setInfo({});
-        if (response.status == 200) {
-            setConfirm(false);
-            showPageContents();
-            window.location.href = '/';
-        }
+        setConfirm(false);
+        showPageContents();
+        window.location.href = '/';
     }
     const t = useTranslation();
     const [confirm, setConfirm] = useState(false);

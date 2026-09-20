@@ -38,7 +38,6 @@ export default function TagInit({ setNewTag, tagToEdit, className = "", children
     const defaultColor = getComputedStyle(document.documentElement).getPropertyValue(`--${theme}-theme-accent-color`).trim();
     const tagColor = tagToEdit.icon.replace("bg-[", "").replace("]", "");
     const [color, setColor] = useState(tagColor || defaultColor);
-    const newTagId = `tag:${randomUUID()}`;
     let icon = `bg-[${color}]`;
     const uniqueTitle = isUnique();
 
@@ -52,7 +51,6 @@ export default function TagInit({ setNewTag, tagToEdit, className = "", children
     const titleToSave = (lang == "ar" && isBuiltIn) ? t(`terms.${builtInKey}`, { lng: "en" }) : title;
     const newTag = {
         builtIn: isBuiltIn,
-        id: newTagId,
         ...tagToEdit,
         title: titleToSave,
         icon,

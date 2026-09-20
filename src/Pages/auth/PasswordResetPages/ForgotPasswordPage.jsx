@@ -26,10 +26,8 @@ export default function ForgotPasswordPage() {
         e.preventDefault();
         try {
             setLoading(true);
-            const response = await forgotPassword(email);
-            if (response && response.status == 200) {
-                navigate('/auth/email-sent')
-            }
+            await forgotPassword(email);
+            navigate('/auth/email-sent')
         } catch (error) {
             // 
         } finally {

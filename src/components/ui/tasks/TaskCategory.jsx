@@ -29,8 +29,7 @@ export default function TaskCategory({ i, setActiveTags, active, handleClick = (
     }
     const [tags, setTags] = useAllTags();
     async function editPin() {
-        const response = await patchTag({ ...tag, pinned: !pinned });
-        if (!response.status == 200) throw new Error('Error couldn\'t pin task');
+        await patchTag({ ...tag, pinned: !pinned });
         setPinned(!pinned);
         const newTag = { ...tag, pinned: !pinned };
         let newTags = tags.filter((cTag) => cTag.id !== tag.id);

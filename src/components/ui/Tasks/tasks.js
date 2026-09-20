@@ -221,7 +221,6 @@ export function useDeleteTask() {
     const [tasks, setTasks] = useTasks();
     async function deleteTask(taskToDelete) {
         const response = await eraseTask(taskToDelete);
-        if (response && response.status != 200) throw new Error('Error occured, deletion unsuccessful');
         let newTasks = tasks.filter((task) => task.id !== response.data.id);
         setTasks(newTasks);
         showPageContents();
@@ -234,7 +233,6 @@ export function useDeleteTag() {
     const [tasks, setTasks] = useTasks();
     async function deleteTag(tagToDelete) {
         const response = await eraseTag(tagToDelete);
-        if (response && response.status != 200) throw new Error('Error occured, deletion unsuccessful');
         let newTasks = tasks;
         for (let task of newTasks) {
             task.tags = task.tags.filter((tag) => tag !== response.data.id);
@@ -521,8 +519,8 @@ function convertTagsToBars(tags) {
     }
     const key = tags[0];
     const [targetTag] = allTags.filter((tag) => tag.id == key);
-    const title = targetTag.title;
-    const color = targetTag.color
+    const title = targetTag?.title;
+    const color = targetTag?.color
     let frequency = 0;
     for (let tag of tags) {
         if (tag == key) {

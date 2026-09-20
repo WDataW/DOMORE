@@ -44,8 +44,7 @@ export default function Task({ className = "", taskObj = {}, completed = "false"
     }
     const [tasks, setTasks] = useTasks();
     async function editPin() {
-        const response = await patchTask({ ...taskObj, pinned: !pinned });
-        if (!response.status == 200) throw new Error('Error couldn\'t pin task');
+        await patchTask({ ...taskObj, pinned: !pinned });
         setPinned(!pinned);
         const newTask = { ...taskObj, pinned: !pinned };
         let newTasks = tasks.filter((cTask) => cTask.id !== taskObj.id);
@@ -141,7 +140,6 @@ export default function Task({ className = "", taskObj = {}, completed = "false"
 
     async function handleChecked() {
         const response = await patchTask({ ...taskObj, status: !checked ? "completed" : "active", completedAt: new Date().toISOString(), pinned: false })
-        if (response && response.status !== 200) throw new Error('Error Couldn\'t complete task');
         editTask(response.data);
         setChecked(!checked);
         setOpened(false);

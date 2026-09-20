@@ -93,7 +93,6 @@ export default function VerificationCodePage() {
         try {
             setLoading(true);
             const response = await verifyEmail(email, verificationCode);
-            if (!response || response.status !== 200) throw new Error('Email verification failed');
             window.location.href = '/app/home';
 
         } catch (error) {

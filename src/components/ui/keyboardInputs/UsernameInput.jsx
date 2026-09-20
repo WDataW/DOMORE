@@ -14,6 +14,7 @@ export default function UsernameInput({ handleChange, value, placeholder, ...pro
             darkIcon={getIcon("/src/assets/icons/dark/user.svg")}
             alt="User Icon"
             className="mb-[0.5rem] "
+            maxLength={25}
             required={true}
             value={value}
             {...props}

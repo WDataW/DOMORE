@@ -30,8 +30,8 @@ export default function SetNewPasswordPage() {
         e.preventDefault();
         try {
             setLoading(true);
-            const response = await resetPassword(email, token, password);
-            if (response && response.status == 200) navigate(`/auth/sign-in?email=${email}`);
+            await resetPassword(email, token, password);
+            navigate(`/auth/sign-in?email=${email}`);
         } catch (error) {
             // 
         } finally {
