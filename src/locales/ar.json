@@ -165,6 +165,7 @@
         "sendAgain": "أرسل مرة أخرى",
         "didntRecieveAnEmail": "لم يصلك بريد إلكتروني؟",
         "weSentACodeTo": "لقد أرسلنا رمزا إلى",
+        "spamFolder": "إذا لم تجده، تحقق من مجلد الرسائل غير المرغوب فيها",
         "creatingNewAccount": "*إنشاء حساب جديد*",
         "noWorriesWellSendYou": "لا تقلق سنرسل لك تعليمات لإعادة تعيين كلمة المرور",
         "dontHaveAnAccount": "ليس لديك حساب؟",

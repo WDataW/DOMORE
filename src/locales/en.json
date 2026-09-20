@@ -160,6 +160,7 @@
         "sendAgain": "Send again",
         "didntRecieveAnEmail": "Didn't recieve an email?",
         "weSentACodeTo": "We sent a code to",
+        "spamFolder": "check your spam folder if you don't see it",
         "creatingNewAccount": "*Creating new account*",
         "noWorriesWellSendYou": "No worries we'll send you reset instrcutions",
         "dontHaveAnAccount": "Don't have an account?",

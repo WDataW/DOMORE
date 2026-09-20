@@ -127,7 +127,9 @@ export default function VerificationCodePage() {
         <Page className={styles["page"]}>
             <div className={`frosted-glass p-[1.5rem] rounded-[0.5rem] md:text-white w-full max-w-[23.5rem]`}>
                 <h2 className="text-center ">{t("titles.verificationCodeSent")}</h2>
-                <p className="text-center opacity-70 mb-[2rem]">{t("terms.weSentACodeTo")} {email}</p>
+                <p className="text-center opacity-70 mt-[0.5rem]">{t("terms.weSentACodeTo")} {email}</p>
+                <p className="text-center mb-[1rem] text-[0.9rem] opacity-50 ">{t("terms.spamFolder")}</p>
+
                 <form id={"verificationCodeForm"} action="">
                     <div className="flex gap-[0.4rem]" dir="ltr">
                         {
