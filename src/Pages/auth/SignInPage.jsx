@@ -3,14 +3,15 @@ import { useTheme } from "../../context/Theme";
 import { useContext, useEffect, useState } from "react";
 import { commonStyles } from "./commonStyles";
 import Page from "../Page";
-import { useTranslation } from "../../context/Language";
+import { getInitLang, useTranslation } from "../../context/Language";
 import { useScreenWidth } from "@/context/ScreenSize";
 import { appName } from "@/App";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { getTags, getTasks, getUserInfo, login } from "@/scripts/requests";
-import { useInfo, useTags, useTasks } from "@/context/User";
+import { getInbox, getTags, getTasks, getUserInfo, login } from "@/scripts/requests";
+import { useInbox, useInfo, useTags, useTasks } from "@/context/User";
 import validator from 'validator'
 import { preload } from "react-dom";
+import { sortInbox } from "@/components/ui/inbox/mail";
 const styles = commonStyles;
 
 export default function SignInPage({ children }) {
@@ -40,6 +41,7 @@ export default function SignInPage({ children }) {
     const [infoState, setInfoState] = useInfo();
     const [tagsState, setTagsState] = useTags();
     const [tasksState, setTasksState] = useTasks();
+    const [inboxState, setInboxState] = useInbox();
     const [loading, setLoading] = useState(false);
     const loginHandler = async (e) => {
         e.preventDefault();
@@ -47,11 +49,6 @@ export default function SignInPage({ children }) {
         // setUserInfo({ ...userInfo, password: "" });
         try {
             const response = await login(userInfo);
-            if (response) setIsSuccessful(response.status == 200);
-            else {
-                setIsSuccessful(false);
-                return;
-            }
             // load user data
             await loadUser();
             navigate('/app/home');
@@ -66,9 +63,11 @@ export default function SignInPage({ children }) {
         const storedInfo = await getUserInfo();
         const storedTags = await getTags();
         const storedTasks = await getTasks();
+        const storedInbox = await getInbox(storedInfo?.settings?.language || getInitLang());
         setInfoState(storedInfo);
         setTagsState(storedTags);
         setTasksState(storedTasks);
+        setInboxState(sortInbox(storedInbox));
     }
 
     const w = useScreenWidth();
