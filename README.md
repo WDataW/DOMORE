@@ -4,8 +4,8 @@ A modern, full‑stack task management web app. DOMORE pairs a polished React fr
 
 - 🖥️ **Frontend (this repo):** [github.com/WDataW/DOMORE](https://github.com/WDataW/DOMORE)
 - ⚙️ **Backend / API:** [github.com/WDataW/DOMORE-Backend](https://github.com/WDataW/DOMORE-Backend)
-- 🌐 **Live app:** [domores.nerdos.site](https://domores.nerdos.site)
-- 🔌 **Live API:** [api.domores.nerdos.site](https://api.domores.nerdos.site)
+- 🌐 **Live app:** [domore.nerdos.site](https://domore.nerdos.site)
+- 🔌 **Live API:** [api.domore.nerdos.site](https://api.domore.nerdos.site)
 
 ## Main Pages
 
@@ -122,5 +122,5 @@ npm run preview    # preview the production build
 
 ## About
 
-- Frontend: [domores.nerdos.site](https://domores.nerdos.site)
-- API: [api.domores.nerdos.site](https://api.domores.nerdos.site)
+- Frontend: [domore.nerdos.site](https://domore.nerdos.site)
+- API: [api.domore.nerdos.site](https://api.domore.nerdos.site)

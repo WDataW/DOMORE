@@ -1,7 +1,8 @@
 import { broadcastError } from '@/ErrorHandler';
 import axios from 'axios';
+import { productionServerURL } from 'config/constants';
 
-const BASE_URL = import.meta.env.DEV ? "/api/v1" : "https://api.domores.nerdos.site/api/v1";
+const BASE_URL = import.meta.env.DEV ? "/api/v1" : productionServerURL;
 const api = axios.create({
     baseURL: BASE_URL,
     withCredentials: true
