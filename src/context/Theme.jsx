@@ -54,6 +54,11 @@ export default function Theme({ children }) {
     useEffect(() => {
         if (userInfo?.settings?.theme) {
             const storedTheme = userInfo.settings.theme;
+            if (userInfo.settings.theme?.base) {
+                document.documentElement.setAttribute("theme", userInfo.settings.theme.base);
+                window.localStorage.setItem("theme", userInfo.settings.theme.base);
+                setTheme(userInfo.settings.theme.base);
+            }
             if (storedTheme?.darkAccentColor) {
                 document.documentElement.style.setProperty("--dark-theme-accent-color", storedTheme.darkAccentColor);
             }
