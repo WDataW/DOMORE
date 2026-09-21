@@ -9,6 +9,7 @@ const features = [
     { key: "arabic&english", icon: "language" },
     { key: "dark&light", icon: "moon" },
     { key: "accentColors", icon: "theme" },
+    { key: "mail", icon: "mail" },
 ]
 
 

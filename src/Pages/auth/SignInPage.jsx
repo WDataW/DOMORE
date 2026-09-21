@@ -87,9 +87,9 @@ export default function SignInPage({ children }) {
                     <EmailInput value={userInfo.email} customTheme={`auth${theme}`} customIcon={w >= 768 && "dark"} handleChange={handleEmailChange} />
                     <WarningMessage className="ms-[0.2rem] mb-[0.5rem]">{userInfo.email !== '' && !validator.isEmail(userInfo.email) && t("errors.invalidEmail")}</WarningMessage>
                     <PasswordInput value={userInfo.password} customTheme={`auth${theme}`} customIcon={w >= 768 && "dark"} handleChange={handlePasswordChange} />
-                    <div className="mt-[0.5rem]">
+                    {/* <div className="mt-[0.5rem]">
                         <CheckboxInput className="h-[1rem] w-[1rem] align-middle">{t("fields.rememberMe")}</CheckboxInput>
-                    </div>
+                    </div> */}
                     <SignInButton loading={loading} className="mt-[1.5rem] mb-[.1rem]" disabled={!userInfo["password"] || !userInfo["email"] || !validator.isEmail(userInfo.email)} />
                 </form>
                 {/* <Link to="/app/home">

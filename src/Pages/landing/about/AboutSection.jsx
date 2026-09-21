@@ -1,7 +1,7 @@
 import { paddingX } from "../LandingPage";
 import AboutInnerSection from "./AboutInnerSection";
 const innerSections = [
-    "Control", "Plan", "Progress"
+    "Home", "Calendar", "Tags", "Stats"
 ];
 export default function AboutSection({ className = "", children, ...props }) {
     return (
