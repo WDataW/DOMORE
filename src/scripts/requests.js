@@ -1,6 +1,6 @@
 import { broadcastError } from '@/ErrorHandler';
 import axios from 'axios';
-import { productionServerURL } from 'config/constants';
+import { productionServerURL } from '../../config/constants.js';
 
 const BASE_URL = import.meta.env.DEV ? "/api/v1" : productionServerURL;
 const api = axios.create({
