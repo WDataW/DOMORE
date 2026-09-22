@@ -7,6 +7,15 @@ A modern, full‑stack task management web app. DOMORE pairs a polished React fr
 - 🌐 **Live app:** [domore.nerdos.site](https://domore.nerdos.site)
 - 🔌 **Live API:** [api.domore.nerdos.site](https://api.domore.nerdos.site)
 
+## Preview
+
+### Landing & Auth Pages
+https://github.com/user-attachments/assets/135e363b-044d-4f5f-8799-ecf308126d48
+
+### App Walkthrough
+https://github.com/user-attachments/assets/ba3ef86a-da18-474f-b969-22c844967539
+
+
 ## Main Pages
 
 1. **Landing Page**
